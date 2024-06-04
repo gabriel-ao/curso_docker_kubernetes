@@ -1,0 +1,101 @@
+# Arquivos gerados
+node_modules/
+npm-debug.log
+
+# Arquivos de configuração local
+.env
+.env.local
+.env.*
+
+# Arquivos de log
+logs/
+*.log
+
+# Arquivos de teste
+test/
+**/__tests__/
+**/__mocks__/
+
+# Arquivos de cobertura de código
+coverage/
+
+# Arquivos temporários
+tmp/
+**/tmp/
+
+# Arquivos de cache
+**/.cache/
+**/cache/
+
+# Arquivos de depuração
+**/.vscode/
+**/.idea/
+**/.DS_Store
+
+# Arquivos de arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de arquivos de banco de dados
+.sqlite
+.sqlite3
+
+# Arquivos de arquivos de documento
+.doc
+.docx
+.xls
+.xlsx
+.ppt
+.pptx
+.odt
+.ods
+.odp
+
+# Arquivos de arquivos de imagem
+.jpg
+.jpeg
+.png
+.gif
+.bmp
+.tif
+.tiff
+.svg
+
+# Arquivos de arquivos de áudio
+.mp3
+.wav
+.ogg
+.flac
+
+# Arquivos de arquivos de vídeo
+.mp4
+.mov
+.avi
+.wmv
+.mkv
+
+# Arquivos de arquivos de texto
+.txt
+.rtf
+.md
+.csv
+
+# Arquivos de arquivos compactados
+.zip
+.rar
+.tar
+.gz
+.bz2
+
+# Arquivos de arquivos de script
+.sh
+.bat
+.cmd
+
+# Arquivos de arquivos de configuração
+.ini
+.conf
+.cfg
+
+# Arquivos de arquivos de propriedade
+.properties
