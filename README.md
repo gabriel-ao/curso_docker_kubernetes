@@ -33,6 +33,28 @@ docker rmi meunode_diferente -> teletando imagem
 docker rmi -f meunode_diferente -> forçando deleção imagem
 
 
+# Deletando imagens e containers não utilizandos
+docker system prune
+
+
+# Copiando arquivos no docker
+docker cp ID_OU_NOME_IMAGEM:/app/app.js ./NOME_PASTA_DESTINO/
+
+# verificando processamento do container
+docker top ID_DO_CONTAINER
+
+# Inspecionar um container
+docker inspect ID_DO_CONTAINER -> retorna todas informações em um container
+
+# Verificando processamento do docker
+docker stats 
+
+# comando para subir e baixar imagem no docker hub
+docker push NOMEREPO/NOMEIMAGEM  -> obs, criar a imagem no hub antes
+docker pull NOMEREPO/NOMEIMAGEM 
+
+# executando imagem baixada do repositorio
+docker run --name testando_imagem -p 3001:3001 -d gabrielao/nodeteste:novaversao
 
 
 # OBS: acesso ao projeto pelo cmder
