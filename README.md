@@ -57,6 +57,10 @@ docker pull NOMEREPO/NOMEIMAGEM
 docker run --name testando_imagem -p 3001:3001 -d gabrielao/nodeteste:novaversao
 
 
+# Criando uma pasta para salvar arquivos fora do docker
+ docker run -d -p 80:80 --name phpmessages_container -v R:\documentos\github\curso_docker_kubernetes\repo_curso\curso_docker\2_volumes\messages:/var/www/html/messages --rm phpmessages
+
+
 # OBS: acesso ao projeto pelo cmder
 ```
 cd /d R:\documentos\github\curso_docker_kubernetes
