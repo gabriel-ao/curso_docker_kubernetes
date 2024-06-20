@@ -60,6 +60,33 @@ docker run --name testando_imagem -p 3001:3001 -d gabrielao/nodeteste:novaversao
 # Criando uma pasta para salvar arquivos fora do docker
  docker run -d -p 80:80 --name phpmessages_container -v R:\documentos\github\curso_docker_kubernetes\repo_curso\curso_docker\2_volumes\messages:/var/www/html/messages --rm phpmessages
 
+# Listando volumes
+docker volume ls
+
+# Listando networks
+docker network ls
+
+# Criando um volume
+network create <NOMEDONETWORK>
+
+# Executando um prune no network - redes não utilizadas em massa
+docker network prune
+
+# Escutando containers com network
+
+docker build -t mysqlnetworkapi .
+docker network create flasknetwork
+docker run -d -p 3307:3306 --name mysql_api_container --network flasknetwork -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysqlnetworkapi
+
+docker build -t flaskapinetwork .
+docker run -d -p 5001:5000 --name flask_api_container --network flasknetwork flaskapinetwork
+
+
+# Connect container ao network
+docker network connect NOME_NETWORK NOME_CONTAINER
+
+# Disconnect container ao network
+docker network disconnect NOME_NETWORK NOME_CONTAINER
 
 # OBS: acesso ao projeto pelo cmder
 ```
