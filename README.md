@@ -88,6 +88,14 @@ docker network connect NOME_NETWORK NOME_CONTAINER
 # Disconnect container ao network
 docker network disconnect NOME_NETWORK NOME_CONTAINER
 
+# Docker compose
+docker-compose up -d = cria/executa container
+docker-compose down  = deleta o container
+docker-compose stop  = pausa o container
+
+
+
+
 # OBS: acesso ao projeto pelo cmder
 ```
 cd /d R:\documentos\github\curso_docker_kubernetes

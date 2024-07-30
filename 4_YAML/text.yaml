@@ -1,0 +1,45 @@
+# Instrução para o programa
+nome: "Gabriel"
+idade: 28
+
+# este objeto descreve o nosso projeto
+objeto:
+  versao: 2
+  arquivo: "teste.txt"
+
+versao: 2
+versao_completa: 3.14
+
+string_sem_aspas: Digite o texto aqui
+
+texto: "Texto valido yaml"
+
+
+valor_null_1: null
+valor_null_2: ~
+
+valor_verdadeiro: On
+valor_verdadeiro2: true
+valor_falso: Off
+valor_falso2: false
+
+
+lista: [1, 2, 3, 4, 5, 6]
+
+
+lista_dois:
+ - 1 
+ - 2
+ - 3
+ - "teste"
+ - true
+
+obj: {a: 1, b: 2, c: 3, obj2: {d: 4}}
+
+objeto: 
+  a: 1222
+  b: 2333
+  c: 3444
+  objeto_interno:
+    d: 4555
+    e: 5666
