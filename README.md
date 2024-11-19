@@ -96,7 +96,117 @@ docker-compose stop  = pausa o container
 
 
 
+# docker swarm
+ 
+docker swarm init --advertise-addr NUMERO_IP_MAQUINA   
+docker swarm init      = criar um swarm
+docker swarm leave -f  = deletar o swarm
+
+
+# dado dockerlabs
+docker labs: https://labs.play-with-docker.com/p/cr575siim2rg00e3jh5g#cr575sii_cr5761qim2rg00e3jh6g
+dia 01/09/24
+
+conectar ao nó dockerlabs -> 
+docker swarm join --token SWMTKN-1-0jkjaee2e232bdv927dzlbotwfgxzz72y5vlakv49gq9rqpivz-f4fh1nu7zu2wxov8nfb77k2ck 192.168.0.28:2377
+
+# abrir porta
+OBS: clicar em "OPEN PORT" e escolher o numero(ex: 80) e partir para um link como exemplo:  http://ip172-18-0-7-cr9tjjaim2rg00fl4tp0-80.direct.labs.play-with-docker.com/
+
+docker node ls -> listar nós conectados ao swarm
+
+docker service ls -> serviços que estão executando no swarm                                                                                                                                                                                                                                                                                                                                                                                               
+criando service           
+docker service create --name nginxswarm -p 80:80 nginx -> OBS executar no node1
+
+# deletar service
+docker service rm nginxswarm
+
+# replicar serviços
+docker service create --name nginxreplicas --replicas 4 -p 80:80 nginx 
+    OBS: o numero 4 depois de replicar informa a quantidade de nós que vc tem e que seram utilizados
+
+# recuperar token - conectar mais uma instancia ao nó principal
+docker swarm join-token manager
+
+# diminuir instancia para evitar gastos
+docker swarm leave 
+    OBS: usar comando no worker removido
+
+# removendo node do swarm 
+docker node rm <ID>
+
+# inpescionar serviços
+docker service inspect <ID>
+
+# docker swarm list
+docker node ls
+
+# verificando quais containers estão rodando
+docker service ps <nomeContainer>
+
+# Compose 
+
+
+# Escalando aplicação
+
+docker service scale nginx_swarm_web=3
+
+
+
+
+# INICIANDO KUBERNETES
+minikube start --driver=docker
+minikube status
+minikube stop
+
+
+minikube dashboard
+
+
+# criando projeto 
+    docker build -t gabrielao/flask-kub-projeto .
+
+# executando projeto
+    docker run -d -p 5000:5000 --name flask-kub --rm gabrielao/flask-kub-projeto
+
+# verificar o dashboard do minikube
+minikube dashboard
+
+# subindo imagem no dockerhub
+    docker push gabrielao/flask-kub-projeto
+
+# criando deployment
+    kubectl create deployment flask-deployment --image=gabrielao/flask-kub-projeto
+
+# descrição do deploy
+    kubectl describe deployments
+
+# checando um pod
+    kubectl get pods
+
+# configurando kubernets
+    kubectl config view
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # OBS: acesso ao projeto pelo cmder
 ```
-cd /d R:\documentos\github\curso_docker_kubernetes
+cd /d D:\documentos\github\curso_docker_kubernetes
 ```
+
+
+
