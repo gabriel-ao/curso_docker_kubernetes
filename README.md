@@ -27,6 +27,8 @@ docker build -t meunode_diferente . -> imagem com nome
 docker build . -> imagem sem nome
 docker build -t meunode_diferente:minhatagdiferente . -> imagem com nome e tag
 
+docker build -t gabrielao/flask-kub-projeto . 
+
 # Deletando imagems
 docker rmi meunode_diferente:minhatagdiferente -> teletando imagem e tag
 docker rmi meunode_diferente -> teletando imagem
@@ -171,7 +173,7 @@ minikube dashboard
     docker run -d -p 5000:5000 --name flask-kub --rm gabrielao/flask-kub-projeto
 
 # verificar o dashboard do minikube
-minikube dashboard
+    minikube dashboard
 
 # subindo imagem no dockerhub
     docker push gabrielao/flask-kub-projeto
@@ -189,17 +191,84 @@ minikube dashboard
     kubectl config view
 
 
+# expondo porta
+    kubectl expose deployment <NOME> --type=<TIPO> --port=<PORT>
+
+    kubectl expose deployment flask-deployment --type=LoadBalancer --port=5000
+
+# gerando IP service
+
+    minikube service flask-deployment
+
+# saber mais sobre o service
+    kubectl describe services/flask-deployment
+
+# replicar aplicação
+
+    kubectl scale deployment/<NOME> --replicas=<QUANTIDADE_REPLICAS>
+
+    kubectl scale deployment/flask-deployment --replicas=5
+
+# verificar o número de replicas
+
+    kubectl get rs -> saber varios projetos executando
+
+# diminuir Escalando
+
+    scale down
+
+
+# atualizar imagem do projeto
+    kubectl set image deployment/<NOME>
+
+    # atualizando arquivo
+    docker build -t gabrielao/flask-kub-projeto:2 .     
+    docker push gabrielao/flask-kub-projeto:2
+
+    realizando update do container
+    kubectl set image deployment/flask-deployment flask-kub-projeto=gabrielao/flask-kub-projeto:2
+
+# rollback
+    kubectl rollout status deployment/<NOME>
+    
+    kubectl rollout status deployment/flask-deployment
+
+    kubectl rollout undo deployment/flask-deployment
+
+# deletando serviço
+    kubectl delete service <NOME>
+    kubectl delete service flask-deployment
+    
+
+# deletando deployment
+    kubectl delete deployment <NOME>
+    kubectl delete deployment flask-deployment
 
 
 
 
+# executar o deployment:
+    kubectl apply -f <ARQUIVO>
+    kubectl apply -f flask.yaml
+
+# parando o deployment:
+    kubectl delete -f <ARQUIVO>
+    kubectl delete -f flask.yaml
 
 
+# executando o service
+    kubectl apply -f <ARQUIVO>
+    kubectl apply -f flask-service.yaml
+
+# gerar o ip
+    minikube service flask-servide
+
+# parando o deployment:
+    kubectl delete -f <ARQUIVO>
+    kubectl delete -f flask-service.yaml
 
 
-
-
-
+3_uniao_arquivos
 
 
 
